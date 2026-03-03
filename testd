@@ -1,0 +1,36 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$7D15lUAO8t8fiFcWBxDVZg$fb3xBg5Q+Rl80S0eFh10hAQtAhvji0elrPsslYPdFKw=",
+    "last_login": "2026-03-02T16:35:52.880Z",
+    "is_superuser": true,
+    "username": "danna",
+    "first_name": "",
+    "last_name": "",
+    "email": "dagarcia@alumnat.copernic.cat",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-02T17:20:32.018Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$mivZzMmnTMyk0fOGTNrNim$XXdn0lld/JxJpBVR6NnPzz9d0fy2DkPTtjJ+Vh7H8/c=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "analista1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-02T16:43:38Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
