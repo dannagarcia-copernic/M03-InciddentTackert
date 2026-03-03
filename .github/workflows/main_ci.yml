@@ -1,28 +1,21 @@
 name: DevSecOps CI Auditoria
-on: [push] # S'executa a cada push
+on: [push] # S'activa amb cada push
 
 jobs:
-  test-seguretat:
-    runs-on: ubuntu-latest # Utilitzem el runner d'Ubuntu de GitHub
-
+  test-security:
+    runs-on: ubuntu-latest
     steps:
-      - name: Descarregar codi
-        uses: actions/checkout@v3
-
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-
-      - name: Instal·lar dependències
-        run: |
-          pip install -r requirements.txt
-          pip install selenium # Ens assegurem que selenium hi sigui
-
-      - name: Executar Auditoria de Seguretat (Selenium)
-        env:
-          # Passem la Secret Key des dels secrets de GitHub
-          SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
-          # Forcem el mode invisible per al servidor de GitHub
-          MOZ_HEADLESS: 1
-        run: python manage.py test core.tests_selenium
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install selenium
+    - name: Run Security Tests
+      env:
+        SECRET_KEY: ${{ secrets.MY_SECRET_KEY }} # Secret de GitHub
+        MOZ_HEADLESS: 1
+      run: python manage.py test core.tests_selenium -v 2
